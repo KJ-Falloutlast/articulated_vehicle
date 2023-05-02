@@ -1,4 +1,4 @@
-# 铲运车在ROS下的建模与运动导航控制系统
+# 铲运车在ROS下的运动学模型构建与运动导航控制系统
 
 该项目旨在创建一辆铰接式铲运机模型，在gazebo中进行建模仿真，并设计相应的环境感知，路径规划，路径跟踪控制模块。
 
@@ -6,67 +6,42 @@
 
 ------
 
-## 下载和编译
+## 1.下载和编译
 
-1. `git clone `
+1. `git clone https://github.com/KJ-Falloutlast/articulated_vehicle.git `  
 
-2. 删除本地系统的move_base, navigation （如果已经安装）
+    
 
-    ```
-    $ sudo aptitude purge ros-kinetic-move-base
-    $ sudo aptitude purge ros-kinetic-navigation
-    ```
-
-3. 安装所需要的依
+2. 安装所需要的依
 
     ```
     $ sudo apt-get install ros-kinetic-velocity-controllers 
     $ sudo apt-get install ros-kinetic-position-controllers 
     ```
 
-4. 进行编译
+3. 进行编译
 
     ```
     $ catkin_make
     ```
 
-    编译过程中可能会缺少相应的依赖或者是系统文件，可能会碰到的问题和解决方案如下：
+## 2.启动方法
 
-    > 
+1. 启动底盘驱动:`roslaunch mrobot_description rosbot_spawn.launch`
+2. 启动导航:`roslaunch mrobot_navigation amcl_nav.launch`
 
-> **出现（missing: BULLET_DYNAMICS_LIBRARY...）**
->
-> CMake Error at /usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake:108 (message): Could NOT find Bullet (missing: BULLET_DYNAMICS_LIBRARY BULLET_COLLISION_LIBRARY BULLET_MATH_LIBRARY BULLET_SOFTBODY_LIBRARY BULLET_INCLUDE_DIR) Call Stack (most recent call first): /usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake:315 (_FPHSA_FAILURE_MESSAGE
->
-> 如果编译时遇到上诉错误，进行如下操作
->
-> ```
-> rosdep where-defined bullet
-> sudo apt-get install libbullet-dev
-> ```
->
-> **出现 Could not find a package configuration file provided by "tf2_sensor_msgs"**
->
-> 办法：
->
-> ```
-> git clone https://github.com/ros/geometry2.git
-> ```
->
-> **出现 Could NOT find SDL (missing: SDL_LIBRARYSDL_INCLUDE_DIR)**
->
-> ```
-> sudo aptitude install libsdl1.2-dev
-> ```
->
-> **出现 Could NOT find SDL_image (missing:SDL_IMAGE_LIBRARIES SDL_IMAGE_INCLUDE_DIRS)**
->
-> ```
-> sudo apt-get install libsdl-image1.2-dev 
-> ```
->
-> **出现 Could not find a package configuration fileprovided by "move_base_msgs"**
->
-> ```
-> git clone https://github.com/ros-planning/navigation_msgs.git
-> ```
+
+
+## 3.效果图
+
+#### 3-1.rqt_graph
+
+![rosgraph_amcl](https://obsidians-pics.oss-cn-beijing.aliyuncs.com/rosgraph_amcl.png)
+
+#### 3-2.铰接车的坐标图
+
+![2023-02-15 00-51-50 的屏幕截图](https://obsidians-pics.oss-cn-beijing.aliyuncs.com/2023-02-15%2000-51-50%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
+
+#### 3-3.铰接车的tf_tree
+
+![rqt_tree](https://obsidians-pics.oss-cn-beijing.aliyuncs.com/rqt_tree.png)
