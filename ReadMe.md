@@ -12,17 +12,17 @@
 
     
 
-2. 安装所需要的依
+2. 安装所需要的依赖
 
     ```
-    $ sudo apt-get install ros-kinetic-velocity-controllers 
-    $ sudo apt-get install ros-kinetic-position-controllers 
+    sudo apt-get install ros-noetic-velocity-controllers 
+    sudo apt-get install ros-noetic-position-controllers 
     ```
 
 3. 进行编译
 
     ```
-    $ catkin_make
+    catkin_make
     ```
 
 ## 2.启动方法
