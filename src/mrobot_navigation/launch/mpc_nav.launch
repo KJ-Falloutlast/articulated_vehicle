@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="/use_sim_time" value="true"/>
+
+  <!-- 1.Map server -->
+  <arg name="map_file" default="$(find mrobot_navigation)/maps/gmapping.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+      <param name="frame_id" value="map"/> 
+  </node>
+
+  <!-- 2.amcl, 有amcl后就不需要从map->odom的坐标变换 -->
+  <arg name="initial_pose_x" default="-30.0"/>
+  <arg name="initial_pose_y" default="-25.0"/>
+  <arg name="initial_pose_a" default="0.0"/>
+  <arg name="custom_amcl_launch_file" default="$(find mrobot_navigation)/launch/mrobot_amcl.launch"/> 
+
+  <include file="$(arg custom_amcl_launch_file)">
+    <arg name="initial_pose_x" value="$(arg initial_pose_x)"/> 
+    <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+    <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+  </include>
+
+    <!-- 3.mpc -->
+    <node pkg = "mpc_node" type = "MPC_Node" name = "MPC_Node" output = "screen" />
+
+</launch>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="robot" default="mrobot"/>
+  <arg name="debug" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+
+  <!-- 1.Start Gazebo with a blank world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find mrobot_description)/models/worlds/articulate_path.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- 2.加载机器人模型 -->
+  <include file="$(find mrobot_description)/launch/include/$(arg robot).launch.xml" /> 
+
+  <!-- 3.发布伺服电机 -->
+	<node pkg="pid" type="servo_commands" name="servo_commands" output="screen" />
+  
+  <!--4.发布odom -->
+  <node pkg="pid" type="odom_pub" name="odom_pub" output="log" />
+
+  <!-- 5.键盘控制 -->
+  <!-- <node pkg = "vinyson_joystick" type = "mrobot_teleop.py" name = "mrobot_teleop" output = "screen" /> -->
+
+  <!-- 6.接收cmd_vel -->
+  <node pkg = "pid" type = "nav_sim" name = "nav_sim" output = "screen"/>
+  
+  <!-- 7.发布rviz -->
+	<node pkg = "rviz" name = "rviz" type = "rviz" args = "-d $(find mrobot_navigation)/rviz/urdf.rviz" />
+
+
+</launch>
+

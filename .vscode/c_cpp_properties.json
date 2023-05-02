@@ -1,0 +1,30 @@
+{
+  "configurations": [
+      {
+          "name": "Linux",
+          "includePath": [
+              "/opt/ros/noetic/include",
+              "/usr/include",
+              "${workspaceFolder}/**",
+              "${workspaceFolder}/devel/include",
+              "/usr/include/eigen3",
+              "/usr/local/include/sophus",
+              "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+              "/usr/include/x86_64-linux-gnu/qt5",
+              "/usr/include/x86_64-linux-gnu/qt5/QtCore",
+              "/usr/include/pcl-1.10",
+              "/usr/local/include",
+              "/usr/include/vtk-7.1"
+          ],
+          "defines": [],
+          "compilerPath": "/usr/bin/gcc",
+          "cStandard": "c11",
+          "cppStandard": "c++17",
+          "intelliSenseMode": "clang-x64"
+      }
+  ],
+  "version": 4
+}
+
+
+

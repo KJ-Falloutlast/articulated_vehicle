@@ -1,0 +1,24 @@
+\subsubsection usage Usage
+\verbatim
+<node name="mpc_node" pkg="mpc_node" type="mpc_node">
+  <param name="max_speed" type="double" value="1.5" />
+  <param name="path_length" type="double" value="6.0" />
+  <param name="goal_radius" type="double" value="0.2" />
+  <param name="controller_freq" type="double" value="10.0" />
+  <param name="mpc_steps" type="double" value="20.0" />
+  <param name="mpc_ref_cte" type="double" value="0.0" />
+  <param name="mpc_ref_epsi" type="double" value="0.0" />
+  <param name="mpc_ref_vel" type="double" value="1.0" />
+  <param name="mpc_w_cte" type="double" value="1.0" />
+  <param name="mpc_w_epsi" type="double" value="1.0" />
+  <param name="mpc_w_vel" type="double" value="0.5" />
+  <param name="mpc_w_delta" type="double" value="1.0" />
+  <param name="mpc_w_accel" type="double" value="2.0" />
+  <param name="mpc_w_delta_d" type="double" value="0.0" />
+  <param name="mpc_w_accel_d" type="double" value="0.0" />
+  <param name="mpc_max_steering" type="double" value="0.436" />
+  <param name="mpc_max_throttle" type="double" value="0.8" />
+  <param name="mpc_max_gama" type="double" value="0.7" />
+</node>
+\endverbatim
+

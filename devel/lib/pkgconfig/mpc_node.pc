@@ -1,0 +1,8 @@
+prefix=/home/kim-james/Tractor_ws/Run/articulated_vehicle_new_ws/devel
+
+Name: mpc_node
+Description: Description of mpc_node
+Version: 0.0.0
+Cflags: -I/home/kim-james/Tractor_ws/Run/articulated_vehicle_new_ws/devel/include -I/home/kim-james/Tractor_ws/Run/articulated_vehicle_new_ws/src/mrobot_controller/mpc_node/include
+Libs: -L${prefix}/lib 
+Requires: 

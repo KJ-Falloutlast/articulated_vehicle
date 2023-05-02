@@ -1,0 +1,23 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~max_speed" : \b [double] max_speed min: 0.0, default: 1.5, max: 100.0
+- \b "~path_length" : \b [double] path_length min: 0.1, default: 6.0, max: 100.0
+- \b "~goal_radius" : \b [double] goal_radius min: 0.0, default: 0.2, max: 1.0
+- \b "~controller_freq" : \b [double] controller_freq min: 0.0, default: 10.0, max: 100.0
+- \b "~mpc_steps" : \b [double] mpc_steps min: 0.0, default: 20.0, max: 100.0
+- \b "~mpc_ref_cte" : \b [double] mpc_ref_cte min: 0.0, default: 0.0, max: 1.0
+- \b "~mpc_ref_epsi" : \b [double] mpc_ref_epsi min: 0.0, default: 0.0, max: 1.0
+- \b "~mpc_ref_vel" : \b [double] mpc_ref_vel min: 0.0, default: 1.0, max: 10.0
+- \b "~mpc_w_cte" : \b [double] mpc_w_cte min: 0.0, default: 1.0, max: 1000.0
+- \b "~mpc_w_epsi" : \b [double] mpc_w_epsi min: 0.0, default: 1.0, max: 1000.0
+- \b "~mpc_w_vel" : \b [double] mpc_w_vel min: 0.0, default: 0.5, max: 1000.0
+- \b "~mpc_w_delta" : \b [double] mpc_w_delta min: 0.0, default: 1.0, max: 1000.0
+- \b "~mpc_w_accel" : \b [double] mpc_w_accel min: 0.0, default: 2.0, max: 1000.0
+- \b "~mpc_w_delta_d" : \b [double] mpc_w_delta_d min: 0.0, default: 0.0, max: 100.0
+- \b "~mpc_w_accel_d" : \b [double] mpc_w_accel_d min: 0.1, default: 0.0, max: 100.0
+- \b "~mpc_max_steering" : \b [double] mpc_max_steering min: 0.1, default: 0.436, max: 10.0
+- \b "~mpc_max_throttle" : \b [double] mpc_max_throttle min: 0.0, default: 0.8, max: 10.0
+- \b "~mpc_max_gama" : \b [double] mpc_max_gama min: 0.0, default: 0.7, max: 10.0
+

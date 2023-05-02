@@ -1,0 +1,40 @@
+<launch>
+
+  <arg name="x" default   = "-30.0" />
+  <arg name="y" default   = "-25.0" />
+  <arg name="z" default   = "0.15" />
+  <arg name="yaw" default = "0.0" />
+
+  <!-- 1.启动urdf -->
+  <!-- 此处xacro不能少 -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find mrobot_description)/urdf/urobot.urdf.xacro" /> 
+  
+  <!-- 2.关节发布节点 -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" ns="/xbot" respawn="false" output="screen">
+    <param name="publish_frequency" type="double" value="100"/>
+    <remap from="/joint_states" to="/xbot/joint_states"/>
+  </node>
+
+  <!-- 3.把机器人放在gazebo中 -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" 
+        args="-urdf -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw) -model xbot-u -param robot_description"/>
+
+
+  <!--4.启动伺服控制器-->
+  <rosparam file="$(find mrobot_description)/param/ctrl.yaml" command="load"/>
+
+  <!--5.Load controllers-->
+  <node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/xbot" 
+    args = "left_wheel_velocity_controller 
+          left_behind_wheel_velocity_controller
+          right_wheel_velocity_controller
+          right_behind_wheel_velocity_controller
+          articulate_controller
+          joint_state_controller"/>  <!--mobile_base_controller:左轮速度，左后轮速度，右轮速度，右后轮速度，铰接角速度-->
+
+
+
+
+
+</launch>

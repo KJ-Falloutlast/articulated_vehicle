@@ -1,0 +1,2 @@
+mrobot_bringup:mrobot_controller/mpc_node:mrobot_controller/pid:mrobot_controller/vinyson_joystick:mrobot_description:mrobot_navigation
+-DCATKIN_DEVEL_PREFIX=/home/kim-james/Tractor_ws/Run/articulated_vehicle_new_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kim-james/Tractor_ws/Run/articulated_vehicle_new_ws/install -G Unix Makefiles
