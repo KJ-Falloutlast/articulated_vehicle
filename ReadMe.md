@@ -32,9 +32,14 @@
 
 
 
-## 3.效果图
 
-#### 3-1.rqt_graph
+## 3.效果图                           
+#### 3-0.demo_video  
+* watching the video of our [articulated_vehicle](https://www.youtube.com/watch?v=HY1pLlN2mGI).!
+![articulated_vehicle](https://github.com/user-attachments/assets/0f0f839d-19da-43ea-95dd-446bb5c377d8)
+
+
+#### 3-1.rqt_graph    
 
 ![rosgraph_amcl](https://obsidians-pics.oss-cn-beijing.aliyuncs.com/rosgraph_amcl.png)
 
